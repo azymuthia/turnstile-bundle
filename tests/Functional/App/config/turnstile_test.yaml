@@ -1,0 +1,7 @@
+when@test:
+    services:
+        Azymuthia\TurnstileBundle\Test\TurnstileMockResponseFactory: ~
+
+        azymuthia_turnstile.http_client:
+            class: Symfony\Component\HttpClient\MockHttpClient
+            arguments: ['@Azymuthia\TurnstileBundle\Test\TurnstileMockResponseFactory']

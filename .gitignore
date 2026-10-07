@@ -1,0 +1,6 @@
+/vendor/
+/composer.lock
+/var/
+/.php-cs-fixer.cache
+/.phpunit.cache/
+/tests/Functional/App/config/reference.php

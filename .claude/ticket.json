@@ -1,0 +1,9 @@
+{
+  "project": "GEN",
+  "verify": [
+    "docker run --rm -e XDEBUG_MODE=off -v \"$PWD\":/app -w /app caelumek/frankenphp:8.5-dev composer validate --strict",
+    "docker run --rm -e XDEBUG_MODE=off -v \"$PWD\":/app -w /app caelumek/frankenphp:8.5-dev composer run --no-interaction code-quality",
+    "docker run --rm -e XDEBUG_MODE=off -v \"$PWD\":/app -w /app caelumek/frankenphp:8.5-dev composer run --no-interaction phpstan",
+    "docker run --rm -e XDEBUG_MODE=off -v \"$PWD\":/app -w /app caelumek/frankenphp:8.5-dev composer run --no-interaction tests"
+  ]
+}
