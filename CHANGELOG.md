@@ -4,6 +4,14 @@ All notable changes to this project are documented here. The format follows
 [Keep a Changelog](https://keepachangelog.com/en/1.1.0/), and the project uses
 [Semantic Versioning](https://semver.org/).
 
+## [1.0.0] - 2026-10-14
+
+First stable release. The public API is unchanged from 0.1.0.
+
+### Added
+
+- Translations: German, Spanish and French.
+
 ## [0.1.0] - 2026-10-07
 
 ### Added
@@ -22,4 +30,5 @@ All notable changes to this project are documented here. The format follows
 - `TurnstileMockResponseFactory`, so applications' tests run with Turnstile on and never call Cloudflare.
 - Translations: English and Polish.
 
+[1.0.0]: https://github.com/azymuthia/turnstile-bundle/releases/tag/v1.0.0
 [0.1.0]: https://github.com/azymuthia/turnstile-bundle/releases/tag/v0.1.0

@@ -107,15 +107,24 @@ final class BundleConfigurationTest extends FunctionalTestCase
         self::assertSame(['invalid-input-secret'], $result->getErrorCodes());
     }
 
-    public function testShipsTheMessageInPolishAndEnglish(): void
+    public function testShipsTheMessageInEveryLocale(): void
     {
         self::bootKernel();
         $translator = self::getContainer()->get('translator');
         \assert($translator instanceof TranslatorInterface);
 
+        $messages = [
+            'en' => 'Verification failed. Refresh the page and try again.',
+            'pl' => 'Weryfikacja nie powiodła się. Odśwież stronę i spróbuj ponownie.',
+            'de' => 'Die Überprüfung ist fehlgeschlagen. Lade die Seite neu und versuche es erneut.',
+            'es' => 'La verificación ha fallado. Recarga la página e inténtalo de nuevo.',
+            'fr' => 'La vérification a échoué. Actualise la page et réessaie.',
+        ];
+
         foreach (['security', 'validators'] as $domain) {
-            self::assertSame('Verification failed. Refresh the page and try again.', $translator->trans(TurnstileAuthenticationException::MESSAGE_KEY, [], $domain, 'en'));
-            self::assertSame('Weryfikacja nie powiodła się. Odśwież stronę i spróbuj ponownie.', $translator->trans(TurnstileAuthenticationException::MESSAGE_KEY, [], $domain, 'pl'));
+            foreach ($messages as $locale => $message) {
+                self::assertSame($message, $translator->trans(TurnstileAuthenticationException::MESSAGE_KEY, [], $domain, $locale));
+            }
         }
     }
 
